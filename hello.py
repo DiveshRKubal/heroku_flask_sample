@@ -21,7 +21,7 @@ def hello_world():
         "percent_change_7d": "-0.44",
         "last_updated": "1556438011"
     }]
-    return res
+    return str(res)
 
 if __name__ == '__main__':
     app.run()
