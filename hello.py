@@ -1,4 +1,5 @@
 from flask import Flask
+import json
 app = Flask(__name__)
 
 @app.route('/')
@@ -21,7 +22,7 @@ def hello_world():
         "percent_change_7d": "-0.44",
         "last_updated": "1556438011"
     }]
-    return str(res)
+    return json.dumps(res)
 
 if __name__ == '__main__':
     app.run()
