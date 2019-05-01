@@ -1,9 +1,15 @@
 from flask import Flask
+from flask import request
 import json
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/sentiment_analysis')
 def hello_world():
+    sentence = request.args.get('sentence')
+
+    print('US: ', sentence)
+
+
     res = [
     {
         "id": "bitcoin",
@@ -22,6 +28,9 @@ def hello_world():
         "percent_change_7d": "-0.44",
         "last_updated": "1556438011"
     }]
+
+    res = {'Input_Sentence': sentence}
+
     return json.dumps(res)
 
 if __name__ == '__main__':
