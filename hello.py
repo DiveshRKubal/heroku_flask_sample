@@ -8,8 +8,10 @@ app = Flask(__name__)
 
 def sentiment_analysis(input_sentence, verbose=True):
     print('ip: ', input_sentence)
+    print('before error')
     # tokenize and POS tag text tokens
     tagged_text = [(token.text, token.tag_) for token in tn.nlp(input_sentence)]
+    print ('after error')
     print('tagged text', tagged_text)
     pos_score = neg_score = token_count = obj_score = 0
     # get wordnet synsets based on POS tags
