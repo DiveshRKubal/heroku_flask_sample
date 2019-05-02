@@ -47,7 +47,7 @@ def sentiment_analysis(input_sentence, verbose=False):
                                                              labels=[[0, 0, 0, 0, 0], [0, 1, 2, 3, 4]]))
         print(sentiment_frame)
 
-    return final_sentiment
+    return str(sentiment_frame)
 
 
 @app.route('/sentiment_analysis')
@@ -75,8 +75,10 @@ def hello_world():
         "percent_change_7d": "-0.44",
         "last_updated": "1556438011"
     }]
+    
+    sentiment_result = sentiment_analysis('The food was good')
 
-    res = {'Input_Sentence': sentence}
+    res = {'Input_Sentence': sentiment_result}
 
     return json.dumps(res)
 
