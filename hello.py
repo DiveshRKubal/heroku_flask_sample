@@ -6,7 +6,7 @@ import text_normalizer as tn
 
 app = Flask(__name__)
 
-def sentiment_analysis(input_sentence, verbose=False):
+def sentiment_analysis(input_sentence, verbose=True):
     # tokenize and POS tag text tokens
     tagged_text = [(token.text, token.tag_) for token in tn.nlp(input_sentence)]
     pos_score = neg_score = token_count = obj_score = 0
