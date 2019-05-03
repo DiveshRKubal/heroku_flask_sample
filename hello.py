@@ -6,6 +6,16 @@ import text_normalizer as tn
 
 app = Flask(__name__)
 
+def sample_text_norm(input_sentence):
+    from text_normalizer.text_normalizer_collection_library import chinese_charactor_text_normalizer_collection_2
+    #input_sentence = "   我在85.33度C買了一杯900──1000元的咖啡    《ohoh》？？ m_m"
+    nor_sentence, meta = chinese_charactor_text_normalizer_collection_2.normalize(input_sentence)
+    print(nor_sentence)
+    return str(nor_sentence)
+
+
+de_sentence = chinese_charactor_text_normalizer_collection_2.denormalize(nor_sentence, meta)
+
 def sentiment_analysis(input_sentence, verbose=True):
     print('ip: ', input_sentence)
     print('before error')
@@ -83,7 +93,7 @@ def hello_world():
         "last_updated": "1556438011"
     }]
     
-    sentiment_result = sentiment_analysis('The food was good')
+    sentiment_result = sample_text_norm('The food was good')
 
     res = {'Input_Sentence': sentiment_result}
 
