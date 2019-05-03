@@ -7,29 +7,31 @@ import json
 
 app = Flask(__name__)
 
-def sample_text_norm(input_sentence):
-    print('*')
-    from text_normalizer.text_normalizer_collection_library import chinese_charactor_text_normalizer_collection_2
-    print('*')
-    input_sentence = "   我在85.33度C買了一杯900──1000元的咖啡    《ohoh》？？ m_m"
-    print('*')
-    nor_sentence, meta = chinese_charactor_text_normalizer_collection_2.normalize(input_sentence)
-    print('*')
-    print(nor_sentence)
-    print('*')
-    return str(nor_sentence)
 
+# def sample_text_norm(input_sentence):
+#     print('*')
+#     from text_normalizer.text_normalizer_collection_library import chinese_charactor_text_normalizer_collection_2
+#     print('*')
+#     input_sentence = "   我在85.33度C買了一杯900──1000元的咖啡    《ohoh》？？ m_m"
+#     print('*')
+#     nor_sentence, meta = chinese_charactor_text_normalizer_collection_2.normalize(input_sentence)
+#     print('*')
+#     print(nor_sentence)
+#     print('*')
+#     return str(nor_sentence)
+
+
+def s1(input_sentence):
+    return str(input_sentence)
 
 
 def sentiment_analysis(input_sentence, verbose=True):
     print('ip: ', input_sentence)
     print('before error')
     # tokenize and POS tag text tokens
-    try:
-        tagged_text = [(token.text, token.tag_) for token in tn.nlp(input_sentence)]
-    except:
-        Exception as e: print(e)
-    print ('after error')
+    tagged_text = [(token.text, token.tag_) for token in tn.nlp(input_sentence)]
+
+    print('after error')
     print('tagged text', tagged_text)
     pos_score = neg_score = token_count = obj_score = 0
     # get wordnet synsets based on POS tags
@@ -78,31 +80,31 @@ def hello_world():
 
     print('US: ', sentence)
 
-
     res = [
-    {
-        "id": "bitcoin",
-        "name": "Bitcoin",
-        "symbol": "BTC",
-        "rank": "1",
-        "price_usd": "5295.5504633",
-        "price_btc": "1.0",
-        "24h_volume_usd": "12669322221.2",
-        "market_cap_usd": "93569331745.0",
-        "available_supply": "17669425.0",
-        "total_supply": "17669425.0",
-        "max_supply": "21000000.0",
-        "percent_change_1h": "0.18",
-        "percent_change_24h": "0.48",
-        "percent_change_7d": "-0.44",
-        "last_updated": "1556438011"
-    }]
-    
-    sentiment_result = sample_text_norm('The food was good')
+        {
+            "id": "bitcoin",
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "rank": "1",
+            "price_usd": "5295.5504633",
+            "price_btc": "1.0",
+            "24h_volume_usd": "12669322221.2",
+            "market_cap_usd": "93569331745.0",
+            "available_supply": "17669425.0",
+            "total_supply": "17669425.0",
+            "max_supply": "21000000.0",
+            "percent_change_1h": "0.18",
+            "percent_change_24h": "0.48",
+            "percent_change_7d": "-0.44",
+            "last_updated": "1556438011"
+        }]
+
+    sentiment_result = s1   ('The food was good')
 
     res = {'Input_Sentence': sentiment_result}
 
     return json.dumps(res)
+
 
 if __name__ == '__main__':
     app.run()
