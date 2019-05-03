@@ -10,15 +10,9 @@ app = Flask(__name__)
 
 def sample_text_norm(input_sentence):
     print('*')
-    from text_normalizer.text_normalizer_collection_library import chinese_charactor_text_normalizer_collection_2
+    tagged_text = [(token.text, token.tag_) for token in tn.nlp(input_sentence)]
     print('*')
-    input_sentence = "   我在85.33度C買了一杯900──1000元的咖啡    《ohoh》？？ m_m"
-    print('*')
-    nor_sentence, meta = chinese_charactor_text_normalizer_collection_2.normalize(input_sentence)
-    print('*')
-    print(nor_sentence)
-    print('*')
-    return str(nor_sentence)
+    return str(tagged_text)
 
 
 def s1(input_sentence):
