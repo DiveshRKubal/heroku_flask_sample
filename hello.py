@@ -99,7 +99,7 @@ def hello_world():
             "last_updated": "1556438011"
         }]
 
-    sentiment_result = s1   ('The food was good')
+    sentiment_result = s1('The food was good')
 
     res = {'Input_Sentence': sentiment_result}
 
