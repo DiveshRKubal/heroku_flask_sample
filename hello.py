@@ -3,6 +3,7 @@ from flask import request
 from nltk.corpus import sentiwordnet as swn
 import pandas as pd
 import text_normalizer as tn
+import json
 
 app = Flask(__name__)
 
