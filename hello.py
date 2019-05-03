@@ -99,7 +99,7 @@ def hello_world():
     
     sentiment_result = sample_text_norm('The food was good')
 
-    res = {'Input_Sentence': sentiment_result'}
+    res = {'Input_Sentence': sentiment_result}
 
     return json.dumps(res)
 
