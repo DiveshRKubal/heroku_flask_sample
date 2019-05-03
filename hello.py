@@ -19,7 +19,6 @@ def sample_text_norm(input_sentence):
     return str(nor_sentence)
 
 
-de_sentence = chinese_charactor_text_normalizer_collection_2.denormalize(nor_sentence, meta)
 
 def sentiment_analysis(input_sentence, verbose=True):
     print('ip: ', input_sentence)
@@ -100,7 +99,7 @@ def hello_world():
     
     sentiment_result = sample_text_norm('The food was good')
 
-    res = {'Input_Sentence': sentiment_result}
+    res = {'Input_Sentence': sentiment_result'}
 
     return json.dumps(res)
 
