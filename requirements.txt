@@ -7,3 +7,5 @@ Werkzeug==0.10.4
 text-normalizer
 nltk
 pandas
+re
+textblob
