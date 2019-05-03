@@ -4,7 +4,7 @@ from textblob import TextBlob
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import json
 import re
-import pandas as pd
+from keyword_extraction import extract_phrases_keywords
 
 app = Flask(__name__)
 
@@ -55,13 +55,20 @@ def sentiment_analysis(ip):
 
 
 
-@app.route('/sentiment_analysis')
-def hello_world():
+@app.route('/sentiment_analysis/')
+def extract_sentiment():
     sentence = request.args.get('sentence')
     print('Input Sentence: ', sentence)
     sentiment_result = sentiment_analysis(sentence)
-
     return sentiment_result
+
+
+@app.route('/phrases_keyword_extraction')
+def extract_keywords_and_phrases():
+    sentence = request.args.get('sentence')
+    print('Input Sentence: ', sentence)
+    phrases_keywords = extract_phrases_keywords(sentence)
+    return phrases_keywords
 
 
 if __name__ == '__main__':
