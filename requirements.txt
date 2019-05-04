@@ -9,3 +9,4 @@ nltk
 pandas
 textblob
 spacy
+en-core-web-sm
