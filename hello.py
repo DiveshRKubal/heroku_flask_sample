@@ -53,6 +53,29 @@ def sentiment_analysis(ip):
     final_sentiment = json.dumps(final_sentiment)
     return final_sentiment
 
+def extract_named_entities(text):
+    # text = "My birth date is 1st July 2019,But Google is starting from behind. The company made a late push into hardware, and Apple’s Siri, available on iPhones, and Amazon’s Alexa software, which runs on its Echo and Dot devices, have clear leads in consumer adoption,I hate Mumbai"
+
+    doc = nlp(text)
+    dict1 = {'ORG': 'Organisation', 'PERSON': 'Name', 'NORP': 'Nationalities group', 'FAC': 'Location',
+             'GPE': 'Country/City/State', 'LOC': 'Area',
+             'PRODUCT': 'Product', 'EVENT': 'Event', 'WORK_OF_ART': 'Book/Songs', 'LAW': 'Law', 'LANGUAGE': 'Language',
+             'DATE': 'Date', 'TIME': 'Time',
+             'PERCENT': 'Percent'}
+
+    for ent in doc.ents:
+        # print(ent.text, ent.start_char, ent.end_char, ent.label_)
+        ner = ([(X.label_, X.text) for X in doc.ents])
+
+    res_ner = []
+    for item in ner:
+        replacement = dict1[item[0]]
+        res_ner.append((replacement, item[1]))
+
+
+    res = {'Named_Entities':res_ner}
+    res = json.dumps(res)
+    return res
 
 
 @app.route('/sentiment_analysis/')
@@ -69,6 +92,14 @@ def extract_keywords_and_phrases():
     print('Input Sentence: ', sentence)
     phrases_keywords = extract_phrases_keywords(sentence)
     return phrases_keywords
+
+@app.route('/named_entity_recognition')
+def extract_keywords_and_phrases():
+    sentence = request.args.get('sentence')
+    print('Input Sentence: ', sentence)
+    ner = extract_named_entities(sentence)
+    return phrases_keywords
+
 
 
 if __name__ == '__main__':
