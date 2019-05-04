@@ -6,7 +6,7 @@ import json
 import re
 from keyword_extraction import extract_phrases_keywords
 import spacy
-nlp = spacy.load("en_core_web_sm")
+#nlp = spacy.load("en_core_web_sm")
 
 app = Flask(__name__)
 
