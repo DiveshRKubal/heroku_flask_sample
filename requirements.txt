@@ -8,3 +8,4 @@ text-normalizer
 nltk
 pandas
 textblob
+spacy
