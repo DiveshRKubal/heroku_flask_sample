@@ -48,9 +48,9 @@ def sentiment_analysis(ip):
     final_sentiment = {'Sentiment':sentiment_pol,
                        'Weightage':str(sentiment_score[0]*100)+'%',
                        'Subjectivity':sentiment_score[1],
-                       'Positive Words':words[0],
-                       'Negative Words':words[1],
-                       'Neutral Words':words[2]}
+                       'Positive_Words':words[0],
+                       'Negative_Words':words[1],
+                       'Neutral_Words':words[2]}
 
     final_sentiment = json.dumps(final_sentiment)
     return final_sentiment
