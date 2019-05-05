@@ -6,7 +6,13 @@ import json
 import re
 # from keyword_extraction import extract_phrases_keywords
 import spacy
-#nlp = spacy.load("en_core_web_sm")
+import sputnik
+import spacy.about
+
+package = sputnik.install('spacy', spacy.about.__version__, spacy.about.__default_model__)
+
+
+nlp = spacy.load("en_core_web_sm")
 
 app = Flask(__name__)
 
