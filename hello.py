@@ -111,7 +111,7 @@ def extract_keywords_and_phrases():
     return phrases_keywords
 
 @app.route('/named_entity_recognition/')
-def extract_keywords_and_phrases():
+def extract_NER():
     sentence = request.args.get('sentence')
     print('Input Sentence: ', sentence)
     ner = extract_named_entities(sentence)
