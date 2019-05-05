@@ -100,14 +100,14 @@ def extract_sentiment():
     return sentiment_result
 
 
-@app.route('/phrases_keyword_extraction')
+@app.route('/phrases_keyword_extraction/')
 def extract_keywords_and_phrases():
     sentence = request.args.get('sentence')
     print('Input Sentence: ', sentence)
     phrases_keywords = extract_phrases_keywords(sentence)
     return phrases_keywords
 
-@app.route('/named_entity_recognition')
+@app.route('/named_entity_recognition/')
 def extract_keywords_and_phrases():
     sentence = request.args.get('sentence')
     print('Input Sentence: ', sentence)
