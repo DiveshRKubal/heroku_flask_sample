@@ -44,30 +44,31 @@ def sentiment_analysis(ip):
 
     final_sentiment = {}
 
-    for each_sentence in sentences:
 
-        blob = TextBlob(each_sentence)
-        sentiment_score = blob.sentiment
+    blob = TextBlob(each_sentence)
+    sentiment_score = blob.sentiment
 
-        words = get_positive_negative_words(ip)
-        if (sentiment_score[0]>0.1):
-            sentiment_pol = 'Positive'
-        elif (sentiment_score[0]<0):
-            sentiment_pol = 'Negative'
-        else:
-            sentiment_pol = 'Neutral'
+    words = get_positive_negative_words(ip)
+    if (sentiment_score[0]>0.1):
+        sentiment_pol = 'Positive'
+    elif (sentiment_score[0]<0):
+        sentiment_pol = 'Negative'
+    else:
+        sentiment_pol = 'Neutral'
 
-        temp = {'Sentiment':sentiment_pol,
-                       'Weightage':str(sentiment_score[0]*100)+'%',
-                       'Subjectivity':sentiment_score[1],
-                       'Positive Words':words[0],
-                       'Negative Words':words[1],
-                       'Neutral Words':words[2]}
+    temp = {'Sentiment':sentiment_pol,
+                   'Weightage':str(sentiment_score[0]*100)+'%',
+                   'Subjectivity':sentiment_score[1],
+                   'Positive Words':words[0],
+                   'Negative Words':words[1],
+                   'Neutral Words':words[2]}
 
-        final_sentiment.update({each_sentence:temp})
+    #final_sentiment.update({each_sentence:temp})
+        
+    
 
 
-    final_sentiment = json.dumps(final_sentiment)
+    final_sentiment = json.dumps(temp)
     return final_sentiment
 
 def extract_named_entities(text):
