@@ -8,7 +8,10 @@ import json
 import re
 from keyword_extraction import extract_phrases_keywords
 import spacy
+
+print('before error')
 nlp = spacy.load("en_core_web_sm")
+print('after error')
 
 app = Flask(__name__)
 
