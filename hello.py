@@ -120,9 +120,7 @@ def extract_NER():
     return ner
 
 
-sentence = 'The food was really excellent'
-print('Input Sentence: ', sentence)
-ner = extract_named_entities(sentence)
+
 
 if __name__ == '__main__':
     app.run()
