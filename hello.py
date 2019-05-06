@@ -11,7 +11,6 @@ import spacy
 
 print('before error')
 nlp = spacy.load("en_core_web_sm")
-print('after error')
 
 app = Flask(__name__)
 
@@ -45,7 +44,7 @@ def sentiment_analysis(ip):
     final_sentiment = {}
 
 
-    blob = TextBlob(each_sentence)
+    blob = TextBlob(ip)
     sentiment_score = blob.sentiment
 
     words = get_positive_negative_words(ip)
