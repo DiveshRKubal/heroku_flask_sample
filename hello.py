@@ -120,26 +120,9 @@ def extract_NER():
     return ner
 
 
+ sentence = 'The food was really excellent'
+print('Input Sentence: ', sentence)
+ner = extract_named_entities(sentence)
 
 if __name__ == '__main__':
-    sentence = 'The food was really excellent'
-    print('Input Sentence: ', sentence)
-    sentiment_result = sentiment_analysis(sentence)
-    print('sentiment: ', sentiment_result)
-
-  
-    print('Input Sentence: ', sentence)
-    phrases_keywords = extract_phrases_keywords(sentence)
-    print('phrases: ', phrases_keywords)
-
-    
-    print('Input Sentence: ', sentence)
-    ner = extract_named_entities(sentence)
-    print('NER: ', ner)
-
-
-
-
-
-
     app.run()
