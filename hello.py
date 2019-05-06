@@ -47,15 +47,18 @@ def sentiment_analysis(ip):
 
     blob = TextBlob(ip)
     sentiment_score = blob.sentiment
+    
+    print('got sentiment')
 
     words = get_positive_negative_words(ip)
+    
     if (sentiment_score[0]>0.1):
         sentiment_pol = 'Positive'
     elif (sentiment_score[0]<0):
         sentiment_pol = 'Negative'
     else:
         sentiment_pol = 'Neutral'
-        
+
     print('SSSSSSSSSSSSSSSSSSSS')
 
     temp = {'Sentiment':sentiment_pol,
