@@ -7,6 +7,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import json
 import re
 from keyword_extraction import extract_phrases_keywords
+
 # import spacy
 #
 # print('before error')
@@ -38,20 +39,15 @@ def get_positive_negative_words(ip):
     return (pos_word_list, neg_word_list, neu_word_list)
 
 def sentiment_analysis(ip):
-    from nltk.tokenize import sent_tokenize
     print('IPPP: ', ip)
-    sentences = sent_tokenize(ip)
-
-    final_sentiment = {}
-
 
     blob = TextBlob(ip)
     sentiment_score = blob.sentiment
-    
+
     print('got sentiment')
 
     words = get_positive_negative_words(ip)
-    
+
     if (sentiment_score[0]>0.1):
         sentiment_pol = 'Positive'
     elif (sentiment_score[0]<0):
