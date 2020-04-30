@@ -226,6 +226,7 @@ def face(sentence):
     #load weights from h5 file
     model.load_weights("model_4layer_2_2_pool.h5")
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=[categorical_accuracy])
+    print(sentence,"new new")
 
     img = image.load_img(sentence, target_size=(48, 48), grayscale=True)
     img_tensor = image.img_to_array(img)                    # (height, width, channels)
