@@ -199,7 +199,7 @@ import urllib
 import cv2
 
 from io import StringIO
-import Image
+from PIL import Image
 def url_to_image(url):
     # download the image, convert it to a NumPy array, and then read
 	# it into OpenCV format
