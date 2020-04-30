@@ -209,51 +209,51 @@ def url_to_image(url):
 
 def face(sentence):
 	
-    try:
+#     try:
     
-	    image = url_to_image(sentence)
-	    cv2.imwrite("face.jpg", image)
+# 	    image = url_to_image(sentence)
+# 	    cv2.imwrite("face.jpg", image)
 
-	    sentence = "face.jpg"
-    except:
+# 	    sentence = "face.jpg"
+#     except:
     
     #load json and create model
-	    json_file = open('model_4layer_2_2_pool.json', 'r')
-	    loaded_model_json = json_file.read()
-	    json_file.close()
-	    model = model_from_json(loaded_model_json)
-	    #load weights from h5 file
-	    model.load_weights("model_4layer_2_2_pool.h5")
-	    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=[categorical_accuracy])
+    json_file = open('model_4layer_2_2_pool.json', 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+    model = model_from_json(loaded_model_json)
+    #load weights from h5 file
+    model.load_weights("model_4layer_2_2_pool.h5")
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=[categorical_accuracy])
 
-	    img = image.load_img(sentence, target_size=(48, 48), grayscale=True)
-	    img_tensor = image.img_to_array(img)                    # (height, width, channels)
-	    img_tensor = np.expand_dims(img_tensor, axis=0)         # (1, height, width, channels), add a dimension because the model expects this shape: (batch_size, height, width, channels)
-	    img_tensor /= 255.                                      # imshow expects values in the range [0, 1]
+    img = image.load_img(sentence, target_size=(48, 48), grayscale=True)
+    img_tensor = image.img_to_array(img)                    # (height, width, channels)
+    img_tensor = np.expand_dims(img_tensor, axis=0)         # (1, height, width, channels), add a dimension because the model expects this shape: (batch_size, height, width, channels)
+    img_tensor /= 255.                                      # imshow expects values in the range [0, 1]
 
-	    pred = model.predict_classes(img_tensor)
-	    if pred == 0:
-		my_ans = "Anger"
+    pred = model.predict_classes(img_tensor)
+    if pred == 0:
+	my_ans = "Anger"
 
-	    elif pred == 1:
-		my_ans = "Disgust"
-	    elif pred == 2:
-		my_ans = "Fear"
-	    elif pred == 3:
-		my_ans = "Happy"
-	    elif pred == 4:
-		my_ans = "Sad"
-	    elif pred == 5:
-		my_ans = "surprise"
-	    else:
-		my_ans = "Neutral"
+    elif pred == 1:
+	my_ans = "Disgust"
+    elif pred == 2:
+	my_ans = "Fear"
+    elif pred == 3:
+	my_ans = "Happy"
+    elif pred == 4:
+	my_ans = "Sad"
+    elif pred == 5:
+	my_ans = "surprise"
+    else:
+	my_ans = "Neutral"
 
-	    temp = {'face':my_ans}
+    temp = {'face':my_ans}
 
 
 
-	    final_face = json.dumps(temp)
-	    return final_face
+    final_face = json.dumps(temp)
+    return final_face
 
 
 
