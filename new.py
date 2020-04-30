@@ -209,9 +209,11 @@ def url_to_image(url):
     return image
 
 def face(sentence):
+    print(sentence,"real")
 	
 
     image = url_to_image(sentence)
+    print(image,"output")
     cv2.imwrite("face.jpg", image)
 
     sentence = "face.jpg"
