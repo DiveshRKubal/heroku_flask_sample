@@ -201,22 +201,20 @@ def url_to_image(url):
     # download the image, convert it to a NumPy array, and then read
 	# it into OpenCV format
     resp = urllib.request.urlopen(url)
-    
+
     image = np.asarray(bytearray(resp.read()), dtype="uint8")
-    
+
     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
     # return the image
     return image
 
 def face(sentence):
 	
-#     try:
-    
-# 	    image = url_to_image(sentence)
-# 	    cv2.imwrite("face.jpg", image)
 
-# 	    sentence = "face.jpg"
-#     except:
+    image = url_to_image(sentence)
+    cv2.imwrite("face.jpg", image)
+
+    sentence = "face.jpg"
     
     #load json and create model
     json_file = open('model_4layer_2_2_pool.json', 'r')
@@ -234,11 +232,11 @@ def face(sentence):
 
     pred = model.predict_classes(img_tensor)
     if pred == 0:
-        
+
         my_ans = "Anger"
 
     elif pred == 1:
-        
+
         my_ans = "Disgust"
     elif pred == 2:
         my_ans = "Fear"
