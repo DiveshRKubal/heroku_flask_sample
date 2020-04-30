@@ -198,28 +198,32 @@ def sarcasm(sentence):
 import urllib
 import cv2
 
-from io import StringIO
-from PIL import Image
-def url_to_image(url):
-    # download the image, convert it to a NumPy array, and then read
-	# it into OpenCV format
-    resp = urllib.request.urlopen(url)
 
-    im = StringIO(file.read()) # constructs a StringIO holding the image
-    img = Image.open(im)
-    img.save('test.jpg')
-    # return the image
-#     return image
+import requests
+from io import BytesIO
+from PIL import Image
+def testRequest2():
+    image_name = 'test3.jpg'
+    r = requests.get(url)
+    print(r)
+    i = Image.open(BytesIO(r.content))
+    i.save(image_name)
+
+
+
+testRequest2()
+
 
 def face(sentence):
     print(sentence,"real")
+    image_name = 'test3.jpg'
+
 	
+    r = requests.get(sentence)
+    i = Image.open(BytesIO(r.content))
+    i.save(image_name)
 
-    image = url_to_image(sentence)
-#     print(image,"output")
-#     cv2.imwrite("face.jpg", image)
-
-    sentence = "test.jpg"
+    sentence = 'test3.jpg' 
     
     #load json and create model
     json_file = open('model_4layer_2_2_pool.json', 'r')
