@@ -195,23 +195,10 @@ def sarcasm(sentence):
     return final_emotion
 
 
-import urllib
-import cv2
-
 
 import requests
 from io import BytesIO
 from PIL import Image
-def testRequest2():
-    image_name = 'test3.jpg'
-    r = requests.get(url)
-    print(r)
-    i = Image.open(BytesIO(r.content))
-    i.save(image_name)
-
-
-
-testRequest2()
 
 
 def face(sentence):
