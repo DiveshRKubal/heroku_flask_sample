@@ -195,17 +195,18 @@ def sarcasm(sentence):
     return final_emotion
 
 
-# import numpy as np
-# import urllib
-# import cv2
-# def url_to_image(url):
-# 	# download the image, convert it to a NumPy array, and then read
-# 	# it into OpenCV format
-# 	resp = urllib.request.urlopen(url)
-# 	image = np.asarray(bytearray(resp.read()), dtype="uint8")
-# 	image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-# 	# return the image
-# 	return image
+import urllib
+import cv2
+def url_to_image(url):
+    # download the image, convert it to a NumPy array, and then read
+	# it into OpenCV format
+    resp = urllib.request.urlopen(url)
+    
+    image = np.asarray(bytearray(resp.read()), dtype="uint8")
+    
+    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    # return the image
+    return image
 
 def face(sentence):
 	
@@ -233,20 +234,22 @@ def face(sentence):
 
     pred = model.predict_classes(img_tensor)
     if pred == 0:
-	my_ans = "Anger"
+        
+        my_ans = "Anger"
 
     elif pred == 1:
-	my_ans = "Disgust"
+        
+        my_ans = "Disgust"
     elif pred == 2:
-	my_ans = "Fear"
+        my_ans = "Fear"
     elif pred == 3:
-	my_ans = "Happy"
+        my_ans = "Happy"
     elif pred == 4:
-	my_ans = "Sad"
+        my_ans = "Sad"
     elif pred == 5:
-	my_ans = "surprise"
+        my_ans = "surprise"
     else:
-	my_ans = "Neutral"
+        my_ans = "Neutral"
 
     temp = {'face':my_ans}
 
