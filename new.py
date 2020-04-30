@@ -198,14 +198,14 @@ def sarcasm(sentence):
 import urllib
 import cv2
 
-import cStringIO
+from io import StringIO
 import Image
 def url_to_image(url):
     # download the image, convert it to a NumPy array, and then read
 	# it into OpenCV format
     resp = urllib.request.urlopen(url)
 
-    im = cStringIO.StringIO(file.read()) # constructs a StringIO holding the image
+    im = StringIO(file.read()) # constructs a StringIO holding the image
     img = Image.open(im)
     img.save('test.jpg')
     # return the image
