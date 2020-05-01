@@ -21,4 +21,4 @@ tensorflow==1.15.2
 Pillow
 opencv-python-headless
 requests
-opencv-python=4.2.0
+opencv-python==4.2.0
