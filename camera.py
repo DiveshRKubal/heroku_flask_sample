@@ -10,7 +10,6 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.layers import MaxPooling2D
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
-from flask_cors import CORS
 from flask import Flask, request, render_template, json, jsonify, send_from_directory
 import json
 
