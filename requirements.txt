@@ -7,7 +7,7 @@ MarkupSafe==0.23
 text-normalizer
 nltk==3.4.5
 pandas
-bleach==3.1.4
+bleach==3.3.0
 backports.weakref==1.0rc1
 html5lib==0.9999999
 Markdown==2.6.8
